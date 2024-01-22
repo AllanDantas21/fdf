@@ -12,6 +12,8 @@
 #ifndef FDF_H
 # define FDF_H
 
+# include <math.h>
+# include <fcntl.h>
 # include "../libft/libft.h"
 # include "../minilibx/mlx.h"
 
