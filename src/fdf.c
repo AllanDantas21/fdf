@@ -15,14 +15,16 @@ int	main(int argc, char **argv)
 {
 	(void)argc;
 	(void)argv;
-	void	*mlx_ptr;
-	void	*win_ptr;
+	fdf		*data;
 
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "fdf");
-	mlx_pixel_put(mlx_ptr, win_ptr, 250, 250, 2550);
-	mlx_pixel_put(mlx_ptr, win_ptr, 251, 251, 2550);
-	mlx_pixel_put(mlx_ptr, win_ptr, 252, 252, 2550);
+	data = (fdf*)malloc(sizeof(fdf));
+	
+	data->mlx_ptr = mlx_init();
+	data->img_ptr = mlx_new_window(data->mlx_ptr, 800, 600, "fdf");
+	data->img_data =  mlx_new_image(data->mlx_ptr, 800, 600);
+	
+	mlx_put_image_to_window(data->mlx_ptr, data->img_ptr, data->img_ptr, 0, 0);
 	sleep(10);
-	mlx_destroy_window(mlx_ptr, win_ptr);
-	}
+	mlx_destroy_window(data->mlx_ptr, data->img_ptr);
+	// read_file(data);
+}
