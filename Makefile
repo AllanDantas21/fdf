@@ -1,7 +1,7 @@
 NAME = fdf
 LIBFT = libft.a
 MINILIBX = libmlx.a
-SRCC_FILES =	fdf.c check_args.c
+SRCC_FILES =	fdf.c checks.c gets.c
 SRC_DIR = src/
 SRC = $(addprefix $(SRC_DIR), $(SRCC_FILES))
 OBJ = ${SRC:.c=.o}

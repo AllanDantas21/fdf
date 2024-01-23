@@ -29,5 +29,6 @@ typedef struct
 }   fdf;
 
 int check_file_name(char *file_name);
+int get_height(char *file_name);
 
 #endif

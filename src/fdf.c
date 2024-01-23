@@ -14,14 +14,14 @@
 
 int	main(int argc, char **argv)
 {
+	//fdf		*data;
+
 	if(argc != 2)
 		return (-1);
 	if(check_file_name(argv[1]))
 		return(-1);
-	printf("extensão aceita");
-	// fdf		*data;
-
-	// data = (fdf*)malloc(sizeof(fdf));
+	//data = (fdf*)malloc(sizeof(fdf));
+	printf("%d", get_height(argv[1]));
 	
 	// data->mlx_ptr = mlx_init();
 	// data->img_ptr = mlx_new_window(data->mlx_ptr, 800, 600, "fdf");
