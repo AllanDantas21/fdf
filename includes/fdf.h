@@ -19,16 +19,17 @@
 
 typedef struct
 {
-    int width;
-    int height;
-    int **z_matrix;
+	int	width;
+	int	height;
+	int	**z_matrix;
 
-    void    *mlx_ptr;
-    void    *img_ptr;
-    char    *img_data;
+	void	*mlx_ptr;
+	void	*img_ptr;
+	char	*img_data;
 }   fdf;
 
-int check_file_name(char *file_name);
-int get_height(char *file_name);
+int	count_width(char const *s, char c);
+int	check_file_name(char *file_name);
+int	get_infos(char *file_name, fdf *data);
 
 #endif
