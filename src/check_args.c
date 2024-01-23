@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldantas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,25 +9,16 @@
 /*   Updated: 2024/01/03 03:29:33 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef FDF_H
-# define FDF_H
+#include "../includes/fdf.h"
 
-# include <math.h>
-# include <fcntl.h>
-# include "../libft/libft.h"
-# include "../minilibx/mlx.h"
-
-typedef struct
+int check_file_name(char *file_name)
 {
-    int width;
-    int height;
-    int **z_matrix;
+    int i;
 
-    void    *mlx_ptr;
-    void    *img_ptr;
-    char    *img_data;
-}   fdf;
-
-int check_file_name(char *file_name);
-
-#endif
+    i = 0;
+    while(file_name[i] && file_name[i] != '.')
+        i++;
+    if (!ft_strncmp(&file_name[i], ".fdf", 4))
+        return (0);
+    return(1);
+}
