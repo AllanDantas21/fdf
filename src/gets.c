@@ -39,12 +39,14 @@ int	get_infos(char *file_name, fdf *data)
 	return (0);
 }
 
-void	malloc_map(int *i, fdf *data)
+void	malloc_map(fdf *data)
 {
-	data->matrix = malloc(sizeof(int *) * (data->height + 1));
-	while (*i <=data->height)
-		data->matrix[*i++] = malloc(sizeof(int) * (data->width + 1));
+	int i;
+
 	i = 0;
+	data->matrix = malloc(sizeof(int *) * (data->height + 1));
+	while (i <=data->height)
+		data->matrix[i++] = malloc(sizeof(int) * (data->width + 1));
 }
 
 void	fill_map(int *line_matrix, char	*line)
@@ -71,7 +73,7 @@ void	get_map(char *file_name, fdf *data)
 
 	i = 0;
 	get_infos(file_name, data);
-	malloc_map(&i, data);
+	malloc_map(data);
 	fd = open(file_name, O_RDONLY);
 	line = (get_next_line(fd));
 	while(line)
