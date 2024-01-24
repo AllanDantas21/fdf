@@ -24,6 +24,23 @@ int	main(int argc, char **argv)
 	get_map(file_name, data);
 
 
+	// ****** test Matrix malloc; ******
+	//
+	// int i = 0;
+	// int j;
+	// while (i < data->height)
+	// {
+	// 	j = 0;
+	// 	while(j < data->width)
+	// 		{
+	// 			printf("%3d", data->matrix[i][j]);
+	// 			j++;
+	// 		}
+	// 		printf("\n");
+	// 		i++;
+	// }
+	// 
+	// **** test get infos map *****
 	//printf("%d\n", data->height);
 	//printf("%d", data->width);
 	// data->mlx_ptr = mlx_init();
