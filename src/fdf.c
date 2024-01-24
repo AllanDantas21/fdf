@@ -14,16 +14,18 @@
 
 int	main(int argc, char **argv)
 {
+	char	*file_name;
 	fdf		*data;
 
-	if(argc != 2)
-		return (-1);
-	if(check_file_name(argv[1]))
+	if((argc != 2) ||check_file_name(argv[1]))
 		return(-1);
+	file_name = argv[1];
 	data = (fdf*)malloc(sizeof(fdf));
-	get_infos(argv[1], data);
-	printf("%d\n", data->height);
-	printf("%d", data->width);
+	get_map(file_name, data);
+
+
+	//printf("%d\n", data->height);
+	//printf("%d", data->width);
 	// data->mlx_ptr = mlx_init();
 	// data->img_ptr = mlx_new_window(data->mlx_ptr, 800, 600, "fdf");
 	// data->img_data =  mlx_new_image(data->mlx_ptr, 800, 600);

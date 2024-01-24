@@ -21,15 +21,17 @@ typedef struct
 {
 	int	width;
 	int	height;
-	int	**z_matrix;
+	int	**matrix;
 
 	void	*mlx_ptr;
 	void	*img_ptr;
 	char	*img_data;
 }   fdf;
 
-int	count_width(char const *s, char c);
-int	check_file_name(char *file_name);
-int	get_infos(char *file_name, fdf *data);
+void	get_map(char *file_name, fdf *data);
+int		count_width(char const *s, char c);
+int		check_file_name(char *file_name);
+int		get_infos(char *file_name, fdf *data);
+
 
 #endif
