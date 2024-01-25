@@ -22,8 +22,13 @@ int	main(int argc, char **argv)
 	file_name = argv[1];
 	data = (fdf*)malloc(sizeof(fdf));
 	get_map(file_name, data);
-
-
+	data->mlx_ptr = mlx_init();
+	data->img_ptr = mlx_new_window(data->mlx_ptr, 800, 600, "fdf");
+	data->img_data =  mlx_new_image(data->mlx_ptr, 800, 600);
+	bresenham(20, 100, 90, 120, 255, data);
+	bresenham(20, 100, 90, 120, 255, data);
+	sleep(10);
+	
 	// ****** test Matrix malloc; ******
 	//
 	// int i = 0;
