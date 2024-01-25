@@ -12,6 +12,12 @@
 #include "../includes/fdf.h"
 #include <stdio.h>
 
+void	init_image(fdf *data)
+{
+	data->mlx_ptr = mlx_init();
+	data->img_ptr = mlx_new_window(data->mlx_ptr, 1200, 800, "fdf");
+	data->img_data =  mlx_new_image(data->mlx_ptr, 1200, 800);
+}
 int	main(int argc, char **argv)
 {
 	char	*file_name;
@@ -21,14 +27,13 @@ int	main(int argc, char **argv)
 		return(-1);
 	file_name = argv[1];
 	data = (fdf*)malloc(sizeof(fdf));
+	init_image(data);
 	get_map(file_name, data);
-	data->mlx_ptr = mlx_init();
-	data->img_ptr = mlx_new_window(data->mlx_ptr, 800, 600, "fdf");
-	data->img_data =  mlx_new_image(data->mlx_ptr, 800, 600);
 	bresenham(20, 100, 90, 120, 255, data);
-	bresenham(20, 100, 90, 120, 255, data);
-	sleep(10);
-	
+	sleep(6);
+
+	//
+	// Bresenham bresenham(20, 100, 90, 120, 255, data);
 	// ****** test Matrix malloc; ******
 	//
 	// int i = 0;
