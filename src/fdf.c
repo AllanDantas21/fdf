@@ -23,13 +23,13 @@ int	main(int argc, char **argv)
 	char	*file_name;
 	fdf		*data;
 
-	if((argc != 2) ||check_file_name(argv[1]))
+	if((argc != 2) || check_file_name(argv[1]))
 		return(-1);
 	file_name = argv[1];
-	data = (fdf*)malloc(sizeof(fdf));
+	data = malloc(sizeof(fdf));
 	init_image(data);
 	get_map(file_name, data);
-	bresenham(20, 100, 90, 120, 255, data);
+	display_map(data);
 	sleep(6);
 
 	//
