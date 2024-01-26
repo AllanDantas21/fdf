@@ -36,6 +36,7 @@ void	get_map(char *file_name, fdf *data);
 int		count_width(char const *s, char c);
 int		check_file_name(char *file_name);
 int		get_infos(char *file_name, fdf *data);
+void	free_map(fdf *data);
 void	ft_free(void **mat);
 
 #endif

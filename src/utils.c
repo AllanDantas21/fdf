@@ -1,5 +1,12 @@
 #include "../includes/fdf.h"
 
+void	free_map(fdf *data)
+{
+	free(data->mlx_ptr);
+	free(data->img_ptr);
+	free(data->img_data);
+}
+
 void	ft_free(void **mat)
 {
 	size_t	i;

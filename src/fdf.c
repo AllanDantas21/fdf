@@ -33,6 +33,7 @@ int	main(int argc, char **argv)
 	get_map(file_name, data);
 	display_map(data);
 	ft_free((void **)data->matrix);
+	free_map(data);
 	free(data);
 	sleep(6);
 	
