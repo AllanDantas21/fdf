@@ -5,10 +5,10 @@ void	display_map(fdf *data)
 	int x;
 	int y;
 
-	y = 0;
+	y = 1;
 	while (y < data->height)
 	{
-		x = 0;
+		x = 1;
 		while (x < data->width)
 		{
 			bresenham(x, y, x + 1, y, 2147483647, data);

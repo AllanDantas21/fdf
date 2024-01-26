@@ -23,6 +23,8 @@ typedef struct
 	int	height;
 	int	**matrix;
 
+	int	zoom;
+
 	void	*mlx_ptr;
 	void	*img_ptr;
 	char	*img_data;
@@ -34,6 +36,6 @@ void	get_map(char *file_name, fdf *data);
 int		count_width(char const *s, char c);
 int		check_file_name(char *file_name);
 int		get_infos(char *file_name, fdf *data);
-
+void	ft_free(void **mat);
 
 #endif

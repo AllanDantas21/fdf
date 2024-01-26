@@ -2,10 +2,11 @@
 
 void bresenham(int x1, int y1, int x2, int y2, int color, fdf *data)
 {
-    x1 *= 25;
-    y1 *= 25;
-    x2 *= 25;
-    y2 *= 25;
+    x1 *= data->zoom; // coloquei o zoom na struct 
+    y1 *= data->zoom; // pra ficar mais facil 
+    x2 *= data->zoom; // de alterar
+    y2 *= data->zoom; //
+
     int dx = x2 - x1;
     int dy = y2 - y1;
 
