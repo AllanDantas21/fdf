@@ -46,13 +46,18 @@ typedef struct
 	char	*img_data;
 }   fdf;
 
-void	display_map(fdf *data);
+void	control_zoom(float *x1, float *y1, float *x2, float *y2, fdf *data);
+void	control_pos(float *x1, float *y1, float *x2, float *y2, fdf *data);
+void	controls(float *x1, float *y1, float *x2, float *y2, fdf *data);
 void 	bresenham(float x1, float y1, float x2, float y2, fdf *data);
+void	isometric(float *x, float *y, int z);
 void	get_map(char *file_name, fdf *data);
-int		count_width(char const *s, char c);
-int		check_file_name(char *file_name);
-int		get_infos(char *file_name, fdf *data);
+void    put_pixel(int x, int y, fdf *data);
+void	display_map(fdf *data);
 void	free_map(fdf *data);
 void	ft_free(void **mat);
+int		get_infos(char *file_name, fdf *data);
+int		count_width(char const *s, char c);
+int		check_file_name(char *file_name);
 
 #endif

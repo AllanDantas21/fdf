@@ -63,6 +63,7 @@
     "cmath": "c",
     "random": "c",
     "fcntl.h": "c",
-    "mlx.h": "c"
+    "mlx.h": "c",
+    "fdf.h": "c"
   }
 }
