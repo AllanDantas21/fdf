@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	ft_free((void **)data->matrix);
 	free_map(data);
 	free(data);
-	sleep(6);
+	sleep(15);
 	
 
 	//
