@@ -3,7 +3,9 @@
 static void    put_pixel(fdf *data, int x, int y, int x_index, int y_index)
 {
     //static int color_test = 2147483647;
-    if (data->matrix[y_index][x_index])
+    (void)x_index;
+    (void)y_index;
+    if (data->z1 || data->z2)
         mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, 255);
     else
         mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, 2147483647);
@@ -49,7 +51,7 @@ static int my_mod(int n)
 static void adjusts(float *x1, float *y1, float *x2, float *y2, fdf *data)
 {
     adjust_zoom(x1, y1, x2, y2, data);
-    isometric(x1, y1, data->z);
+    isometric(x1, y1, data->z1);
     isometric(x2, y2, data->z2);
     adjust_pos(x1, y1, x2, y2, data);
 }
@@ -59,7 +61,7 @@ void bresenham(float x1, float y1, float x2, float y2, fdf *data)
     data->x_index = x1;
     data->y_index = y1;
  
-    data->z = data->matrix[(int)y1][(int)x1];
+    data->z1 = data->matrix[(int)y1][(int)x1];
     data->z2 = data->matrix[(int)y2][(int)x2];
     adjusts(&x1, &y1, &x2, &y2, data);
     data->x_diff = x2 - x1;

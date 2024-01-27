@@ -30,6 +30,7 @@ typedef struct
 	int	height;
 	int	**matrix;
 
+	/**/
 	int	zoom;
 	int	pos;
 
@@ -39,7 +40,7 @@ typedef struct
 	float   x_diff;
 	float   y_diff;
 	int     max;
-	int     z;
+	int     z1;
 	int     z2;
 
 	void	*mlx_ptr;
