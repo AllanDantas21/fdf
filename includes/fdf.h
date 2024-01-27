@@ -35,8 +35,6 @@ typedef struct
 	int	pos;
 
 	/* Bresenham utils*/
-	int x_index;
-	int y_index;
 	float   x_diff;
 	float   y_diff;
 	int     max;
