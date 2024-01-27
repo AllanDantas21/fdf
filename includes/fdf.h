@@ -18,19 +18,29 @@
 # include "../minilibx/mlx.h"
 
 typedef struct {
-    int x;
-    int y;
-    int z;
+	int x;
+	int y;
+	int z;
 }	point;
 
 typedef struct
 {
+	/* map infos*/
 	int	width;
 	int	height;
 	int	**matrix;
 
 	int	zoom;
 	int	pos;
+
+	/* Bresenham utils*/
+	int x_index;
+	int y_index;
+	float   x_diff;
+	float   y_diff;
+	int     max;
+	int     z;
+	int     z2;
 
 	void	*mlx_ptr;
 	void	*img_ptr;

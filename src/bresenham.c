@@ -46,33 +46,33 @@ static int my_mod(int n)
     return (n);
 }
 
+static void adjusts(float *x1, float *y1, float *x2, float *y2, fdf *data)
+{
+    adjust_zoom(x1, y1, x2, y2, data);
+    isometric(x1, y1, data->z);
+    isometric(x2, y2, data->z2);
+    adjust_pos(x1, y1, x2, y2, data);
+}
+
 void bresenham(float x1, float y1, float x2, float y2, fdf *data)
 {
-    int x_index = x1;
-    int y_index = y1;
-    float   x_diff;
-    float   y_diff;
-    int     max;
-    int     z;
-    int     z2;
-
-    z = data->matrix[(int)y1][(int)x1];
-    z2 = data->matrix[(int)y2][(int)x2];
-    adjust_zoom(&x1, &y1, &x2, &y2, data);
-    isometric(&x1, &y1, z);
-    isometric(&x2, &y2, z2);
-    adjust_pos(&x1, &y1, &x2, &y2, data);
-    x_diff = x2 - x1;
-    y_diff = y2 - y1;
+    data->x_index = x1;
+    data->y_index = y1;
  
-    max = my_max(my_mod(x_diff), my_mod(y_diff));
-    x_diff /= max;
-    y_diff /= max;
+    data->z = data->matrix[(int)y1][(int)x1];
+    data->z2 = data->matrix[(int)y2][(int)x2];
+    adjusts(&x1, &y1, &x2, &y2, data);
+    data->x_diff = x2 - x1;
+    data->y_diff = y2 - y1;
+ 
+    data->max = my_max(my_mod(data->x_diff), my_mod(data->y_diff));
+    data->x_diff /= data->max;
+    data->y_diff /= data->max;
     while((int)(x1 - x2) || (int)(y1 - y2))
     {
-        put_pixel(data, x1, y1, x_index, y_index);
-        x1 += x_diff;
-        y1 += y_diff;
+        put_pixel(data, x1, y1, data->x_index, data->y_index);
+        x1 += data->x_diff;
+        y1 += data->y_diff;
     }
 }
 
