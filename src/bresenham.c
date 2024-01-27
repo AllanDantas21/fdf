@@ -7,11 +7,11 @@ static void    put_pixel(fdf *data, int x, int y, int color, int x_index, int y_
     if (data->matrix[y_index][x_index])
         mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, 255);
     else
-        mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, color);
+        mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, 2147483647);
     //color_test -= 1000;
 }
 
-static void adjust_zoom(int *x1, int *y1, int *x2, int *y2, fdf *data)
+static void adjust_zoom(float *x1, float *y1, float *x2, float *y2, fdf *data)
 {
     *x1 *= data->zoom; // coloquei o zoom na struct 
     *y1 *= data->zoom; // pra ficar mais facil 
@@ -19,57 +19,63 @@ static void adjust_zoom(int *x1, int *y1, int *x2, int *y2, fdf *data)
     *y2 *= data->zoom; //
 }
 
-// static void isometric(int *x, int *y, int z)
-// {
-//     *x = (*x - *y) * cos(0.8);
-//     *y = (*x + *y) * sin(0.8) - z;
-// }
-
-void bresenham(int x1, int y1, int x2, int y2, int color, fdf *data)
+static void adjust_pos(float *x1, float *y1, float *x2, float *y2, fdf *data)
 {
-    //int z = data->matrix[x1][y1];
-    int x_index = x1;
-    int y_index = y1;
-    //int z1 = data->matrix[x2][y2];
-    //isometric(&x1, &y1, z);
-    //isometric(&x2, &y2, z);
-    adjust_zoom(&x1, &y1, &x2, &y2, data);
-
-    int dx = x2 - x1;
-    int dy = y2 - y1;
-    int d = 2 * dy - dx;
-    int incE = 2 * dy;
-    int incNE = 2 * (dy - dx);
- 
-    put_pixel(data, x1, y1, color, x_index, y_index);
-
-    if (dx == 0) {
-        while (y1 < y2) {
-            y1++;
-            put_pixel(data, x1, y1, color, x_index, y_index);
-        }
-    } else if (dy == 0) {
-        while (x1 < x2) {
-            x1++;
-            put_pixel(data, x1, y1, color, x_index, y_index);
-        }
-    } else 
-    {
-        while (x1 != x2 || y1 != y2) 
-        {
-            if (d <= 0) {
-                d += incE;
-                x1++;
-            } else {
-                d += incNE;
-                x1++;
-                y1++;
-            }
-           put_pixel(data, x1, y1, color, x_index, y_index);
-        }
-    }
+    *x1 += data->pos;
+    *y1 += data->pos;
+    *x2 += data->pos;
+    *y2 += data->pos;
 }
 
+static void isometric(float *x, float *y, int z)
+{
+    *x = (*x - *y) * cos(0.8);
+    *y = (*x + *y) * sin(0.8) - z;
+}
+
+static int my_max(int n1, int n2)
+{
+    if (n1 > n2)
+        return (n1);
+    return (n2); 
+}
+
+static int my_mod(int n)
+{
+    if (n < 0)
+        return (-n);
+    return (n);
+}
+
+void bresenham(float x, float y, float x1, float y1, int color, fdf *data)
+{
+    int x_index = x;
+    int y_index = y;
+    float   x_diff;
+    float   y_diff;
+    int     max;
+    int     z;
+    int     z1;
+
+    z = data->matrix[(int)y][(int)x];
+    z1 = data->matrix[(int)y1][(int)x1];
+    adjust_zoom(&x, &y, &x1, &y1, data);
+    isometric(&x, &y, z);
+    isometric(&x1, &y1, z1);
+    adjust_pos(&x, &y, &x1, &y1, data);
+    x_diff = x1 - x;
+    y_diff = y1 - y;
+ 
+    max = my_max(my_mod(x_diff), my_mod(y_diff));
+    x_diff /= max;
+    y_diff /= max;
+    while((int)(x - x1) || (int)(y - y1))
+    {
+        put_pixel(data, x, y, color, x_index, y_index);
+        x += x_diff;
+        y += y_diff;
+    }
+}
 
     // x1 *= 25;
     // y1 *= 25;

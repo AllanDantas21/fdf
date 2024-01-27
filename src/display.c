@@ -2,8 +2,8 @@
 
 void	display_map(fdf *data)
 {
-	int x;
-	int y;
+	float x;
+	float y;
 
 	y = 1;
 	while (y < data->height)

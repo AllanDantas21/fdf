@@ -21,7 +21,7 @@ typedef struct {
     int x;
     int y;
     int z;
-} Point3D;
+}	point;
 
 typedef struct
 {
@@ -30,14 +30,15 @@ typedef struct
 	int	**matrix;
 
 	int	zoom;
+	int	pos;
 
 	void	*mlx_ptr;
 	void	*img_ptr;
 	char	*img_data;
 }   fdf;
-void draw_line_3d(fdf *data, Point3D p1, Point3D p2, int color);
-void    display_map(fdf *data);
-void 	bresenham(int x1, int y1, int x2, int y2, int color, fdf *data);
+
+void	display_map(fdf *data);
+void	bresenham(float x, float y, float x1, float y1, int color, fdf *data);
 void	get_map(char *file_name, fdf *data);
 int		count_width(char const *s, char c);
 int		check_file_name(char *file_name);

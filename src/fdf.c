@@ -18,6 +18,7 @@ void	init_image(fdf *data)
 	data->img_ptr = mlx_new_window(data->mlx_ptr, 1200, 800, "fdf");
 	data->img_data =  mlx_new_image(data->mlx_ptr, 1200, 800);
 	data->zoom = 20;
+	data->pos = 150;
 }
 
 int	main(int argc, char **argv)

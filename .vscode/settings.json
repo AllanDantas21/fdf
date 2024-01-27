@@ -60,6 +60,9 @@
     "array": "c",
     "string": "c",
     "string_view": "c",
-    "cmath": "c"
+    "cmath": "c",
+    "random": "c",
+    "fcntl.h": "c",
+    "mlx.h": "c"
   }
 }
