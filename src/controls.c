@@ -18,8 +18,8 @@ void control_zoom(float *x1, float *y1, float *x2, float *y2, fdf *data)
 
  void control_pos(float *x1, float *y1, float *x2, float *y2, fdf *data)
 {
-    *x1 += data->pos;
-    *y1 += data->pos;
-    *x2 += data->pos;
-    *y2 += data->pos;
+    *x1 += data->mv_x;
+    *y1 += data->mv_y;
+    *x2 += data->mv_x;
+    *y2 += data->mv_y;
 }

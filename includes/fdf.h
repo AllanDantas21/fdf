@@ -17,24 +17,21 @@
 # include "../libft/libft.h"
 # include "../minilibx/mlx.h"
 
-typedef struct {
-	int x;
-	int y;
-	int z;
-}	point;
+# define ARROW_LEFT 65361
+# define ARROW_RIGHT 65363
+# define ARROW_DOWN 65364
+# define ARROW_UP 65362
 
 typedef struct
 {
-	/* map infos*/
 	int	width;
 	int	height;
 	int	**matrix;
 
-	/**/
 	int	zoom;
-	int	pos;
+	int mv_x;
+	int mv_y;
 
-	/* Bresenham utils*/
 	float   x_diff;
 	float   y_diff;
 	int     max;
