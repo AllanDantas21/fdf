@@ -1,12 +1,22 @@
 #include "../includes/fdf.h"
+#include <math.h>
+
+static void    put_pixel(fdf *data, int x, int y, int color)
+{
+    mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, color);
+}
+
+static void adjust_zoom(int *x1, int *y1, int *x2, int *y2, fdf *data)
+{
+    *x1 *= data->zoom; // coloquei o zoom na struct 
+    *y1 *= data->zoom; // pra ficar mais facil 
+    *x2 *= data->zoom; // de alterar
+    *y2 *= data->zoom; //
+}
 
 void bresenham(int x1, int y1, int x2, int y2, int color, fdf *data)
 {
-    x1 *= data->zoom; // coloquei o zoom na struct 
-    y1 *= data->zoom; // pra ficar mais facil 
-    x2 *= data->zoom; // de alterar
-    y2 *= data->zoom; //
-
+    adjust_zoom(&x1, &y1, &x2, &y2, data);
     int dx = x2 - x1;
     int dy = y2 - y1;
 
@@ -17,7 +27,7 @@ void bresenham(int x1, int y1, int x2, int y2, int color, fdf *data)
 
     int x = x1;
     int y = y1;
-    mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, color);
+    put_pixel(data, x, y, color);
 
     // Lidar com linhas verticais
     if (dx == 0)
@@ -25,7 +35,7 @@ void bresenham(int x1, int y1, int x2, int y2, int color, fdf *data)
         while (y < y2)
         {
             y++;
-            mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, color);
+            put_pixel(data, x, y, color);
         }
         return;
     }
@@ -36,7 +46,7 @@ void bresenham(int x1, int y1, int x2, int y2, int color, fdf *data)
         while (x < x2)
         {
             x++;
-            mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, color);
+            put_pixel(data, x, y, color);
         }
         return;
     }
@@ -55,7 +65,7 @@ void bresenham(int x1, int y1, int x2, int y2, int color, fdf *data)
             x++;
             y++;
         }
-        mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, color);
+        put_pixel(data, x, y, color);
     }
 }
 
