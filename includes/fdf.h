@@ -38,7 +38,7 @@ typedef struct
 }   fdf;
 
 void	display_map(fdf *data);
-void	bresenham(float x, float y, float x1, float y1, int color, fdf *data);
+void 	bresenham(float x1, float y1, float x2, float y2, fdf *data);
 void	get_map(char *file_name, fdf *data);
 int		count_width(char const *s, char c);
 int		check_file_name(char *file_name);
