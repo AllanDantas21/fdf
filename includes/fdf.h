@@ -17,6 +17,12 @@
 # include "../libft/libft.h"
 # include "../minilibx/mlx.h"
 
+typedef struct {
+    int x;
+    int y;
+    int z;
+} Point3D;
+
 typedef struct
 {
 	int	width;
@@ -29,7 +35,7 @@ typedef struct
 	void	*img_ptr;
 	char	*img_data;
 }   fdf;
-
+void draw_line_3d(fdf *data, Point3D p1, Point3D p2, int color);
 void    display_map(fdf *data);
 void 	bresenham(int x1, int y1, int x2, int y2, int color, fdf *data);
 void	get_map(char *file_name, fdf *data);

@@ -1,5 +1,4 @@
 #include "../includes/fdf.h"
-#include <math.h>
 
 static void    put_pixel(fdf *data, int x, int y, int color, int x_index, int y_index)
 {
@@ -20,10 +19,20 @@ static void adjust_zoom(int *x1, int *y1, int *x2, int *y2, fdf *data)
     *y2 *= data->zoom; //
 }
 
+// static void isometric(int *x, int *y, int z)
+// {
+//     *x = (*x - *y) * cos(0.8);
+//     *y = (*x + *y) * sin(0.8) - z;
+// }
+
 void bresenham(int x1, int y1, int x2, int y2, int color, fdf *data)
 {
+    //int z = data->matrix[x1][y1];
     int x_index = x1;
     int y_index = y1;
+    //int z1 = data->matrix[x2][y2];
+    //isometric(&x1, &y1, z);
+    //isometric(&x2, &y2, z);
     adjust_zoom(&x1, &y1, &x2, &y2, data);
 
     int dx = x2 - x1;
@@ -31,32 +40,32 @@ void bresenham(int x1, int y1, int x2, int y2, int color, fdf *data)
     int d = 2 * dy - dx;
     int incE = 2 * dy;
     int incNE = 2 * (dy - dx);
-    int x = x1;
-    int y = y1;
-
-    put_pixel(data, x, y, color, x_index, y_index);
+ 
+    put_pixel(data, x1, y1, color, x_index, y_index);
 
     if (dx == 0) {
-        while (y < y2) {
-            y++;
-            put_pixel(data, x, y, color, x_index, y_index);
+        while (y1 < y2) {
+            y1++;
+            put_pixel(data, x1, y1, color, x_index, y_index);
         }
     } else if (dy == 0) {
-        while (x < x2) {
-            x++;
-            put_pixel(data, x, y, color, x_index, y_index);
+        while (x1 < x2) {
+            x1++;
+            put_pixel(data, x1, y1, color, x_index, y_index);
         }
-    } else {
-        while (x != x2 || y != y2) {
+    } else 
+    {
+        while (x1 != x2 || y1 != y2) 
+        {
             if (d <= 0) {
                 d += incE;
-                x++;
+                x1++;
             } else {
                 d += incNE;
-                x++;
-                y++;
+                x1++;
+                y1++;
             }
-           put_pixel(data, x, y, color, x_index, y_index);
+           put_pixel(data, x1, y1, color, x_index, y_index);
         }
     }
 }
