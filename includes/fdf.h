@@ -14,6 +14,7 @@
 
 # include <math.h>
 # include <fcntl.h>
+# include <X11/keysym.h>
 # include "../libft/libft.h"
 # include "../minilibx/mlx.h"
 

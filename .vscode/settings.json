@@ -64,6 +64,7 @@
     "random": "c",
     "fcntl.h": "c",
     "mlx.h": "c",
-    "fdf.h": "c"
+    "fdf.h": "c",
+    "math.h": "c"
   }
 }

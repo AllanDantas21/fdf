@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
-#include <stdio.h>
 
 void	init_image(fdf *data)
 {
@@ -32,6 +31,14 @@ int	moves(int key, fdf *data)
 		data->mv_y += 10;
 	if (key == ARROW_LEFT)
 		data->mv_x -= 10;
+	if (key == XK_minus)
+		data->zoom -= 1;
+	if (key == XK_equal)
+		data->zoom += 1;
+	if (key == 32)
+		data->z1 += 0.1;
+	if (key == XK_s)
+		data->x_diff -= 2;
 	mlx_clear_window(data->mlx_ptr, data->img_ptr);
 	display_map(data);
 	return (0);

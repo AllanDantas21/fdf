@@ -14,10 +14,10 @@ void	display_map(fdf *data)
 	float x;
 	float y;
 
-	y = 1;
+	y = 0;
 	while (y < data->height)
 	{
-		x = 1;
+		x = 0;
 		while (x < data->width)
 		{
 			if (!(x == data->width - 1)) // if para nao ligar reta quando chegar no x max
