@@ -41,6 +41,15 @@ int	moves(int key, fdf *data)
 		data->x_diff -= 2;
 	mlx_clear_window(data->mlx_ptr, data->img_ptr);
 	display_map(data);
+	if (key == XK_Escape)
+	{
+		ft_free((void **)data);
+		mlx_destroy_window(data->mlx_ptr, data->img_ptr);
+		mlx_destroy_display(data->mlx_ptr);
+		free(data->mlx_ptr);
+		free(data);
+		exit(1);
+	}
 	return (0);
 }
 
@@ -57,5 +66,6 @@ int	main(int argc, char **argv)
 	get_map(file_name, data);
 	display_map(data);
 	mlx_key_hook(data->img_ptr, &moves, data);
+	mlx_hook(data->img_ptr, 17, 0, &destroy_fdf, data);
 	mlx_loop(data->mlx_ptr);
 }

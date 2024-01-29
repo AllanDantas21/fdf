@@ -1,10 +1,13 @@
 #include "../includes/fdf.h"
 
-void	free_map(fdf *data)
+int	destroy_fdf(fdf *data)
 {
+	ft_free((void **)data);
+	mlx_destroy_window(data->mlx_ptr, data->img_ptr);
+	mlx_destroy_display(data->mlx_ptr);
 	free(data->mlx_ptr);
-	free(data->img_ptr);
-	free(data->img_data);
+	free(data);
+	exit(0);
 }
 
 void	ft_free(void **mat)
