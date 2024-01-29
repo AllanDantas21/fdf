@@ -1,25 +1,25 @@
 #include "../includes/fdf.h"
 
-void controls(float *x1, float *y1, float *x2, float *y2, fdf *data)
+void	controls(pos *p, float *x2, float *y2, fdf *data)
 {
-    control_zoom(x1, y1, x2, y2, data);
-    isometric(x1, y1, data->z1);
-    isometric(x2, y2, data->z2);
-    control_pos(x1, y1, x2, y2, data);
+	control_zoom(p, x2, y2, data);
+	isometric(&p->x, &p->y, data->z1);
+	isometric(x2, y2, data->z2);
+	control_pos(p, x2, y2, data);
 }
 
-void control_zoom(float *x1, float *y1, float *x2, float *y2, fdf *data)
+void	control_zoom(pos *p, float *x2, float *y2, fdf *data)
 {
-    *x1 *= data->zoom; // coloquei o zoom na struct 
-    *y1 *= data->zoom; // pra ficar mais facil 
-    *x2 *= data->zoom; // de alterar
-    *y2 *= data->zoom; //
+	p->x *= data->zoom;
+	p->y *= data->zoom;
+	*x2 *= data->zoom;
+	*y2 *= data->zoom;
 }
 
- void control_pos(float *x1, float *y1, float *x2, float *y2, fdf *data)
+void	control_pos(pos *p, float *x2, float *y2, fdf *data)
 {
-    *x1 += data->mv_x;
-    *y1 += data->mv_y;
-    *x2 += data->mv_x;
-    *y2 += data->mv_y;
+	p->x += data->mv_x;
+	p->y += data->mv_y;
+	*x2 += data->mv_x;
+	*y2 += data->mv_y;
 }

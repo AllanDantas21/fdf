@@ -5,8 +5,7 @@ int	destroy_fdf(fdf *data)
 	ft_free(data);
 	mlx_destroy_window(data->mlx_ptr, data->img_ptr);
 	mlx_destroy_display(data->mlx_ptr);
-	//free(data->mlx_ptr);
-	free(data);
+	free(data->mlx_ptr);
 	exit(0);
 }
 
