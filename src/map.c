@@ -1,6 +1,6 @@
 #include "../includes/fdf.h"
 
-int	get_infos(char *file_name, fdf *data)
+int	get_infos(char *file_name, t_fdf *data)
 {
 	int		fd;
 	int		height;
@@ -26,7 +26,7 @@ int	get_infos(char *file_name, fdf *data)
 	return (0);
 }
 
-void	malloc_map(fdf *data)
+void	malloc_map(t_fdf *data)
 {
 	int	i;
 
@@ -51,7 +51,7 @@ void	fill_map(int *line_matrix, char	*line)
 	free(values);
 }
 
-void	get_map(char *file_name, fdf *data)
+void	get_map(char *file_name, t_fdf *data)
 {
 	char	*line;
 	char	*tmp;

@@ -1,6 +1,6 @@
 #include "../includes/fdf.h"
 
-void	controls(pos *p, float *x2, float *y2, fdf *data)
+void	controls(t_pos *p, float *x2, float *y2, t_fdf *data)
 {
 	control_zoom(p, x2, y2, data);
 	isometric(&p->x, &p->y, data->z1);
@@ -8,7 +8,7 @@ void	controls(pos *p, float *x2, float *y2, fdf *data)
 	control_pos(p, x2, y2, data);
 }
 
-void	control_zoom(pos *p, float *x2, float *y2, fdf *data)
+void	control_zoom(t_pos *p, float *x2, float *y2, t_fdf *data)
 {
 	p->x *= data->zoom;
 	p->y *= data->zoom;
@@ -16,7 +16,7 @@ void	control_zoom(pos *p, float *x2, float *y2, fdf *data)
 	*y2 *= data->zoom;
 }
 
-void	control_pos(pos *p, float *x2, float *y2, fdf *data)
+void	control_pos(t_pos *p, float *x2, float *y2, t_fdf *data)
 {
 	p->x += data->mv_x;
 	p->y += data->mv_y;

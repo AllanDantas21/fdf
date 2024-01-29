@@ -14,7 +14,7 @@ static int	my_mod(int n)
 	return (n);
 }
 
-void	bresenham(pos p, float x2, float y2, fdf *data)
+void	bresenham(t_pos p, float x2, float y2, t_fdf *data)
 {
 	data->z1 = data->matrix[(int)p.y][(int)p.x];
 	data->z2 = data->matrix[(int)y2][(int)x2];

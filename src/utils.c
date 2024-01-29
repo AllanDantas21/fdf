@@ -1,6 +1,6 @@
 #include "../includes/fdf.h"
 
-int	destroy_fdf(fdf *data)
+int	destroy_fdf(t_fdf *data)
 {
 	ft_free(data);
 	mlx_destroy_window(data->mlx_ptr, data->img_ptr);
@@ -9,7 +9,7 @@ int	destroy_fdf(fdf *data)
 	exit(0);
 }
 
-void	ft_free(fdf *data)
+void	ft_free(t_fdf *data)
 {
 	int	i;
 

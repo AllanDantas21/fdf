@@ -6,7 +6,7 @@ void	isometric(float *x, float *y, int z)
 	*y = (*x + *y) * sin(0.8) - z;
 }
 
-void	put_pixel(int x, int y, fdf *data)
+void	put_pixel(int x, int y, t_fdf *data)
 {
 	if (data->z1 || data->z2)
 		mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, 0Xff00000);
@@ -16,9 +16,9 @@ void	put_pixel(int x, int y, fdf *data)
 		mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, 2147483647);
 }
 
-void	display_map(fdf *data)
+void	display_map(t_fdf *data)
 {
-	pos	p;
+	t_pos	p;
 
 	p.y = 0;
 	while (p.y < data->height)

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../includes/fdf.h"
 
-void	init_image(fdf *data)
+void	init_image(t_fdf *data)
 {
 	data->mlx_ptr = mlx_init();
 	data->img_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "fdf - aldantas");
@@ -20,7 +20,7 @@ void	init_image(fdf *data)
 	data->zoom = 20;
 }
 
-int	moves(int key, fdf *data)
+int	moves(int key, t_fdf *data)
 {
 	if (key == ARROW_UP)
 		data->mv_y -= 10;
@@ -48,7 +48,7 @@ int	moves(int key, fdf *data)
 int	main(int argc, char **argv)
 {
 	char	*file_name;
-	fdf		data;
+	t_fdf		data;
 
 	if ((argc != 2) || check_file_name(argv[1]))
 		return (-1);
