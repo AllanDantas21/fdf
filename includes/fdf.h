@@ -33,13 +33,16 @@ typedef struct s_pos
 
 typedef struct s_fdf
 {
-	int	width;
-	int	height;
-	int	**matrix;
+	int		width;
+	int		height;
+	int		**matrix;
 
-	int	zoom;
-	int	mv_x;
-	int	mv_y;
+	int		zoom;
+	double	angle;
+	int		rotate_left_flag;
+	int		rotate_rigth_flag;
+	int		mv_x;
+	int		mv_y;
 
 	float	x_diff;
 	float	y_diff;
@@ -55,7 +58,7 @@ void	control_zoom(t_pos *p, float *x2, float *y2, t_fdf *data);
 void	control_pos(t_pos *p, float *x2, float *y2, t_fdf *data);
 void	controls(t_pos *p, float *x2, float *y2, t_fdf *data);
 void	bresenham(t_pos p, float x2, float y2, t_fdf *data);
-void	isometric(float *x, float *y, int z);
+void	isometric(float *x, float *y, int z, t_fdf *data);
 void	get_map(char *file_name, t_fdf *data);
 void	put_pixel(int x, int y, t_fdf *data);
 void	display_map(t_fdf *data);
@@ -67,6 +70,12 @@ int		check_file_name(char *file_name);
 int		destroy_fdf(t_fdf *data);
 int		get_width(char *line);
 char	*count_height(int fd, int *height);
+
+	/* rotate funcs */
+void	rotate_left(float *x, float *y);
+void	rotate_right(float *x, float *y);
+void 	change_r_right(t_fdf *data);
+void 	change_r_left(t_fdf *data);
 
 
 #endif

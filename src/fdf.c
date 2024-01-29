@@ -18,6 +18,9 @@ void	init_image(t_fdf *data)
 	data->mv_x = 150;
 	data->mv_y = 150;
 	data->zoom = 20;
+	data->rotate_left_flag = 0;
+	data->rotate_rigth_flag = 0;
+	data->angle = 0.8;
 }
 
 int	moves(int key, t_fdf *data)
@@ -34,10 +37,14 @@ int	moves(int key, t_fdf *data)
 		data->zoom -= 1;
 	if (key == XK_equal)
 		data->zoom += 1;
-	if (key == 32)
-		data->z1 += 0.1;
+	if (key == XK_w)
+		data->angle += 0.05;
 	if (key == XK_s)
-		data->x_diff -= 2;
+		data->angle -= 0.05;
+	if (key == XK_z)
+		change_r_left(data);
+	if (key == XK_x)
+		change_r_right(data);
 	mlx_clear_window(data->mlx_ptr, data->img_ptr);
 	display_map(data);
 	if (key == XK_Escape)

@@ -3,8 +3,18 @@
 void	controls(t_pos *p, float *x2, float *y2, t_fdf *data)
 {
 	control_zoom(p, x2, y2, data);
-	isometric(&p->x, &p->y, data->z1);
-	isometric(x2, y2, data->z2);
+	if (data->rotate_left_flag == 1)
+	{
+		rotate_left(&p->x, &p->y);	
+		rotate_left(x2, y2);
+	}
+	if (data->rotate_rigth_flag == 1)
+	{
+		rotate_right(&p->x, &p->y);	
+		rotate_right(x2, y2);
+	}
+	isometric(&p->x, &p->y, data->z1, data);
+	isometric(x2, y2, data->z2, data);
 	control_pos(p, x2, y2, data);
 }
 
