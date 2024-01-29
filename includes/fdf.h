@@ -64,5 +64,8 @@ int		get_infos(char *file_name, fdf *data);
 int		count_width(char const *s, char c);
 int		check_file_name(char *file_name);
 int		destroy_fdf(fdf *data);
+int		get_width(char *line);
+char	*count_height(int fd, int *height);
+
 
 #endif

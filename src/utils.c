@@ -22,7 +22,21 @@ void	ft_free(fdf *data)
 	free(data->matrix);
 }
 
-int count_width(char const *s, char c)
+char	*count_height(int fd, int *height)
+{
+	*height = *height + 1;
+	return (get_next_line(fd));
+}
+
+int	get_width(char *line)
+{
+	int	width;
+
+	width = count_width(line, ' ');
+	return (width);
+}
+
+int	count_width(char const *s, char c)
 {
 	int	words;
 

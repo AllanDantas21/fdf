@@ -1,33 +1,19 @@
 #include "../includes/fdf.h"
 
-static char	*count_height(int fd, int *height)
-{
-	*height = *height + 1;
-	return(get_next_line(fd));
-}
-
-static int	get_width(char *line)
-{
-	int	width;
-
-	width = count_width(line, ' ');
-	return (width);
-}
-
 int	get_infos(char *file_name, fdf *data)
 {
 	int		fd;
 	int		height;
 	char	*tmp;
 	char	*line;
-   
+
 	fd = open(file_name, O_RDONLY);
 	line = get_next_line(fd);
 	if (!line)
 		return (-1);
 	data->width = get_width(line);
 	height = 1;
-	while(line)
+	while (line)
 	{
 		tmp = line;
 		line = count_height(fd, &height);
@@ -42,7 +28,7 @@ int	get_infos(char *file_name, fdf *data)
 
 void	malloc_map(fdf *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	data->matrix = malloc(sizeof(int *) * (data->height));
@@ -57,7 +43,7 @@ void	fill_map(int *line_matrix, char	*line)
 
 	i = 0;
 	values = ft_split(line, ' ');
-	while(values[i])
+	while (values[i])
 	{
 		line_matrix[i] = ft_atoi(values[i]);
 		free(values[i++]);
@@ -77,7 +63,7 @@ void	get_map(char *file_name, fdf *data)
 	malloc_map(data);
 	fd = open(file_name, O_RDONLY);
 	line = (get_next_line(fd));
-	while(line && i < data->height)
+	while (line && i < data->height)
 	{
 		tmp = line;
 		fill_map(data->matrix[i++], tmp);
