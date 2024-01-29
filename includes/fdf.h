@@ -41,7 +41,6 @@ typedef struct
 
 	void	*mlx_ptr;
 	void	*img_ptr;
-	char	*img_data;
 }   fdf;
 
 void	control_zoom(float *x1, float *y1, float *x2, float *y2, fdf *data);
@@ -53,7 +52,7 @@ void	get_map(char *file_name, fdf *data);
 void    put_pixel(int x, int y, fdf *data);
 void	display_map(fdf *data);
 void	free_map(fdf *data);
-void	ft_free(void **mat);
+void	ft_free(fdf *data);
 int		get_infos(char *file_name, fdf *data);
 int		count_width(char const *s, char c);
 int		check_file_name(char *file_name);

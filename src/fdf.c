@@ -14,8 +14,7 @@
 void	init_image(fdf *data)
 {
 	data->mlx_ptr = mlx_init();
-	data->img_ptr = mlx_new_window(data->mlx_ptr, 1200, 800, "fdf");
-	data->img_data =  mlx_new_image(data->mlx_ptr, 1200, 800);
+	data->img_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "fdf - aldantas");
 	data->mv_x = 150;
 	data->mv_y = 150;
 	data->zoom = 20;
@@ -43,11 +42,9 @@ int	moves(int key, fdf *data)
 	display_map(data);
 	if (key == XK_Escape)
 	{
-		ft_free((void **)data);
+		ft_free(data);
 		mlx_destroy_window(data->mlx_ptr, data->img_ptr);
 		mlx_destroy_display(data->mlx_ptr);
-		free(data->mlx_ptr);
-		free(data);
 		exit(1);
 	}
 	return (0);
@@ -56,16 +53,15 @@ int	moves(int key, fdf *data)
 int	main(int argc, char **argv)
 {
 	char	*file_name;
-	fdf		*data;
+	fdf		data;
 
 	if((argc != 2) || check_file_name(argv[1]))
 		return(-1);
 	file_name = argv[1];
-	data = malloc(sizeof(fdf));
-	init_image(data);
-	get_map(file_name, data);
-	display_map(data);
-	mlx_key_hook(data->img_ptr, &moves, data);
-	mlx_hook(data->img_ptr, 17, 0, &destroy_fdf, data);
-	mlx_loop(data->mlx_ptr);
+	init_image(&data);
+	get_map(file_name, &data);
+	display_map(&data);
+	mlx_key_hook(data.img_ptr, &moves, &data);
+	mlx_hook(data.img_ptr, 17, 0, &destroy_fdf, &data);
+	mlx_loop(data.mlx_ptr);
 }

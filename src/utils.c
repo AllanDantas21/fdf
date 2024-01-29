@@ -2,22 +2,25 @@
 
 int	destroy_fdf(fdf *data)
 {
-	ft_free((void **)data);
+	ft_free(data);
 	mlx_destroy_window(data->mlx_ptr, data->img_ptr);
 	mlx_destroy_display(data->mlx_ptr);
-	free(data->mlx_ptr);
+	//free(data->mlx_ptr);
 	free(data);
 	exit(0);
 }
 
-void	ft_free(void **mat)
+void	ft_free(fdf *data)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (mat[i])
-		free(mat[i++]);
-	free(mat);
+	while (i < data->height)
+	{
+		free(data->matrix[i]);
+		i++;
+	}
+	free(data->matrix);
 }
 
 int count_width(char const *s, char c)
