@@ -33,7 +33,7 @@ void	malloc_map(t_fdf *data)
 	i = 0;
 	data->matrix = malloc(sizeof(int *) * (data->height));
 	while (i < data->height)
-		data->matrix[i++] = malloc(sizeof(int) * (data->width));
+		data->matrix[i++] = malloc(sizeof(int) * (data->width + 1));
 }
 
 void	fill_map(int *line_matrix, char	*line)
@@ -46,7 +46,8 @@ void	fill_map(int *line_matrix, char	*line)
 	while (values[i])
 	{
 		line_matrix[i] = ft_atoi(values[i]);
-		free(values[i++]);
+		free(values[i]);
+		i++;
 	}
 	free(values);
 }
