@@ -25,6 +25,14 @@
 # define ARROW_DOWN 65364
 # define ARROW_UP 65362
 
+# define WHITE	0xffffff
+# define RED	0xff0000
+# define BLUE	0x0000FF
+# define GREEN  0x00FF00
+# define YELLOW 0xFFF700
+# define CYAN	0x00FFFB
+# define PURPLE 0x6100FF
+
 typedef struct s_pos
 {
 	float	x;
@@ -38,7 +46,10 @@ typedef struct s_fdf
 	int		**matrix;
 
 	int		zoom;
-	double	angle;
+	int		color;
+	double	x_angle;
+	double  y_angle;
+	int		isometric_flag;
 	int		rotate_left_flag;
 	int		rotate_rigth_flag;
 	int		mv_x;
@@ -64,6 +75,7 @@ void	put_pixel(int x, int y, t_fdf *data);
 void	display_map(t_fdf *data);
 void	free_map(t_fdf *data);
 void	ft_free(t_fdf *data);
+void	defaults(t_fdf *data);
 int		get_infos(char *file_name, t_fdf *data);
 int		count_width(char const *s, char c);
 int		check_file_name(char *file_name);
@@ -71,11 +83,17 @@ int		destroy_fdf(t_fdf *data);
 int		get_width(char *line);
 char	*count_height(int fd, int *height);
 
-	/* rotate funcs */
 void	rotate_left(float *x, float *y);
 void	rotate_right(float *x, float *y);
 void 	change_r_right(t_fdf *data);
 void 	change_r_left(t_fdf *data);
 
+void	change_color(t_fdf *data);
+int		moves(int key, t_fdf *data);
+void	arrows(int key, t_fdf *data);
+void	zoom(int key, t_fdf *data);
+void	translation(int key, t_fdf *data);
+void	rotation(int key, t_fdf *data);
+void	views(int key, t_fdf *data);
 
 #endif

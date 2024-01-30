@@ -13,8 +13,11 @@ void	controls(t_pos *p, float *x2, float *y2, t_fdf *data)
 		rotate_right(&p->x, &p->y);	
 		rotate_right(x2, y2);
 	}
-	isometric(&p->x, &p->y, data->z1, data);
-	isometric(x2, y2, data->z2, data);
+	if (data->isometric_flag == 1)
+	{
+		isometric(&p->x, &p->y, data->z1, data);
+		isometric(x2, y2, data->z2, data);
+	}
 	control_pos(p, x2, y2, data);
 }
 

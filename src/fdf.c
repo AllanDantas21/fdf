@@ -14,37 +14,29 @@
 void	init_image(t_fdf *data)
 {
 	data->mlx_ptr = mlx_init();
-	data->img_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "fdf - aldantas");
-	data->mv_x = 150;
-	data->mv_y = 150;
+	data->img_ptr = mlx_new_window(data->mlx_ptr, HEIGHT, WIDTH, "fdf - aldantas");
+}
+
+void	defaults(t_fdf *data)
+{
+	data->mv_x = WIDTH / 6;
+	data->mv_y = HEIGHT / 6;
 	data->zoom = 20;
+	data->color = BLUE;
 	data->rotate_left_flag = 0;
 	data->rotate_rigth_flag = 0;
-	data->angle = 0.8;
+	data->x_angle = 0.8;
+	data->y_angle = 0.8;
+	data->isometric_flag = 1;
 }
 
 int	moves(int key, t_fdf *data)
 {
-	if (key == ARROW_UP)
-		data->mv_y -= 10;
-	if (key == ARROW_RIGHT)
-		data->mv_x += 10;
-	if (key == ARROW_DOWN)
-		data->mv_y += 10;
-	if (key == ARROW_LEFT)
-		data->mv_x -= 10;
-	if (key == XK_minus)
-		data->zoom -= 1;
-	if (key == XK_equal)
-		data->zoom += 1;
-	if (key == XK_w)
-		data->angle += 0.05;
-	if (key == XK_s)
-		data->angle -= 0.05;
-	if (key == XK_z)
-		change_r_left(data);
-	if (key == XK_x)
-		change_r_right(data);
+	arrows(key, data);
+	zoom(key, data);
+	views(key, data);
+	translation(key, data);
+	rotation(key, data);
 	mlx_clear_window(data->mlx_ptr, data->img_ptr);
 	display_map(data);
 	if (key == XK_Escape)
@@ -61,6 +53,7 @@ int	main(int argc, char **argv)
 		return (-1);
 	file_name = argv[1];
 	init_image(&data);
+	defaults(&data);
 	get_map(file_name, &data);
 	display_map(&data);
 	mlx_key_hook(data.img_ptr, &moves, &data);

@@ -1,7 +1,7 @@
 NAME = fdf
 LIBFT = libft.a
 MINILIBX = libmlx.a
-SRCC_FILES =	fdf.c checks.c map.c utils.c bresenham.c display.c controls.c rotate.c
+SRCC_FILES =	fdf.c checks.c map.c utils.c bresenham.c display.c controls.c rotate.c keys.c
 SRC_DIR = src/
 SRC = $(addprefix $(SRC_DIR), $(SRCC_FILES))
 OBJ = ${SRC:.c=.o}
