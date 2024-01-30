@@ -18,22 +18,20 @@ void zoom(int key, t_fdf *data)
 		data->zoom -= 1;
 	if (key == XK_equal)
 		data->zoom += 1;
-	if (key == XK_c)
-		change_color(data);
 }
 
 void translation(int key, t_fdf *data)
 {
-	if (key == XK_w)
+	if (key == KEY_W)
 		data->x_angle += 0.05;
-	if (key == XK_s)
+	if (key == KEY_S)
 		data->y_angle -= 0.05;
-	if (key == XK_q)
+	if (key == KEY_Q)
 	{
 		data->x_angle += 0.05;
 		data->y_angle += 0.05;
 	}
-	if (key == XK_e)
+	if (key == KEY_E)
 	{
 		data->x_angle -= 0.05;
 		data->y_angle -= 0.05;
@@ -42,14 +40,16 @@ void translation(int key, t_fdf *data)
 
 void	views(int key, t_fdf *data)
 {
-	if (key == XK_i)
+	if (key == KEY_I)
 		defaults(data);
-	if (key == XK_p)
+	if (key == KEY_C)
+		change_color(data);
+	if (key == KEY_P)
 	{
 		data->x_angle = 0.5235;
 		data->y_angle = 2.6179;
 	}
-	if (key == XK_f)
+	if (key == KEY_F)
 	{
 		if (data->isometric_flag == 1)
 			data->isometric_flag = 0;
@@ -60,8 +60,8 @@ void	views(int key, t_fdf *data)
 
 void rotation(int key, t_fdf *data)
 {
-	if (key == XK_z)
+	if (key == KEY_Z)
 		change_r_left(data);
-	if (key == XK_x)
+	if (key == KEY_X)
 		change_r_right(data);
 }
