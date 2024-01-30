@@ -18,19 +18,6 @@ void	init_image(t_fdf *data)
 	HEIGHT, WIDTH, "fdf - aldantas");
 }
 
-void	defaults(t_fdf *data)
-{
-	data->mv_x = WIDTH / 6;
-	data->mv_y = HEIGHT / 6;
-	data->zoom = 20;
-	data->color = BLUE;
-	data->rotate_left_flag = 0;
-	data->rotate_rigth_flag = 0;
-	data->x_angle = 0.8;
-	data->y_angle = 0.8;
-	data->isometric_flag = 1;
-}
-
 int	moves(int key, t_fdf *data)
 {
 	arrows(key, data);

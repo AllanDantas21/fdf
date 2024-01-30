@@ -1,5 +1,18 @@
 #include "../includes/fdf.h"
 
+void	defaults(t_fdf *data)
+{
+	data->mv_x = (WIDTH - data->width) / 2;
+	data->mv_y = HEIGHT / 5;
+	data->zoom = 15;
+	data->color = BLUE;
+	data->rotate_left_flag = 0;
+	data->rotate_rigth_flag = 0;
+	data->x_angle = 0.8;
+	data->y_angle = 0.8;
+	data->isometric_flag = 1;
+}
+
 void	controls(t_pos *p, float *x2, float *y2, t_fdf *data)
 {
 	control_zoom(p, x2, y2, data);
