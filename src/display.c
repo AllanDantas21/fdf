@@ -24,12 +24,12 @@ void	change_color(t_fdf *data)
 
 void	put_pixel(int x, int y, t_fdf *data)
 {
-	if (data->z1 || data->z2)
+	if (data->z1 > 0 || data->z2 > 0)
 		mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, data->color);
-	else if (data->z1 == 0 || data->z2 == 0)
+	else if (data->z1 < 0 || data->z2 < 0)
 		mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, WHITE);
 	else
-		mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, BLUE);
+		mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, WHITE);
 }
 
 void put_instructions(t_fdf *data)

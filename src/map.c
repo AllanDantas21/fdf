@@ -8,6 +8,8 @@ int	get_infos(char *file_name, t_fdf *data)
 	char	*line;
 
 	fd = open(file_name, O_RDONLY);
+	if (fd < 0)
+		exit(-1);
 	line = get_next_line(fd);
 	if (!line)
 		return (-1);
