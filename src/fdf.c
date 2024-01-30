@@ -14,7 +14,8 @@
 void	init_image(t_fdf *data)
 {
 	data->mlx_ptr = mlx_init();
-	data->img_ptr = mlx_new_window(data->mlx_ptr, HEIGHT, WIDTH, "fdf - aldantas");
+	data->img_ptr = mlx_new_window(data->mlx_ptr, \
+	HEIGHT, WIDTH, "fdf - aldantas");
 }
 
 void	defaults(t_fdf *data)
@@ -46,7 +47,7 @@ int	moves(int key, t_fdf *data)
 
 int	main(int argc, char **argv)
 {
-	char	*file_name;
+	char		*file_name;
 	t_fdf		data;
 
 	if ((argc != 2) || check_file_name(argv[1]))

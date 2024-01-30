@@ -5,6 +5,7 @@ void	rotate_left(float *x, float *y)
 	*x = *x;
 	*y = -*y;
 }
+
 void	rotate_right(float *x, float *y)
 {
 	*x = -*x;

@@ -20,7 +20,7 @@ void	bresenham(t_pos p, float x2, float y2, t_fdf *data)
 	data->z2 = data->matrix[(int)y2][(int)x2];
 	controls(&p, &x2, &y2, data);
 	data->x_diff = x2 - p.x;
-	data->y_diff = y2 - p.y; 
+	data->y_diff = y2 - p.y;
 	data->max = my_max(my_mod(data->x_diff), my_mod(data->y_diff));
 	data->x_diff /= data->max;
 	data->y_diff /= data->max;

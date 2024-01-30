@@ -1,6 +1,6 @@
 #include "../includes/fdf.h"
 
-void arrows(int key, t_fdf *data)
+void	arrows(int key, t_fdf *data)
 {
 	if (key == ARROW_UP)
 		data->mv_y -= 10;
@@ -12,7 +12,7 @@ void arrows(int key, t_fdf *data)
 		data->mv_x -= 10;
 }
 
-void zoom(int key, t_fdf *data)
+void	zoom(int key, t_fdf *data)
 {
 	if (key == XK_minus)
 		data->zoom -= 1;
@@ -20,7 +20,7 @@ void zoom(int key, t_fdf *data)
 		data->zoom += 1;
 }
 
-void translation(int key, t_fdf *data)
+void	translation(int key, t_fdf *data)
 {
 	if (key == KEY_W)
 		data->x_angle += 0.05;
@@ -58,7 +58,7 @@ void	views(int key, t_fdf *data)
 	}
 }
 
-void rotation(int key, t_fdf *data)
+void	rotation(int key, t_fdf *data)
 {
 	if (key == KEY_Z)
 		change_r_left(data);

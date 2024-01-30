@@ -13,7 +13,7 @@
 
 int	check_file_name(char *file_name)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (file_name[i] && file_name[i] != '.')

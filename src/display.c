@@ -32,7 +32,7 @@ void	put_pixel(int x, int y, t_fdf *data)
 		mlx_pixel_put(data->mlx_ptr, data->img_ptr, x, y, WHITE);
 }
 
-void put_instructions(t_fdf *data)
+void	put_instructions(t_fdf *data)
 {
 	mlx_string_put(data->mlx_ptr, data->img_ptr, \
 	10, 20, 0xFFFFFF, "Zoom out/zoom in: '+' - '-'");
