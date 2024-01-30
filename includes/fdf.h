@@ -20,10 +20,10 @@
 
 # define HEIGHT 1920
 # define WIDTH 1080
-# define ARROW_LEFT 65361
-# define ARROW_RIGHT 65363
-# define ARROW_DOWN 65364
-# define ARROW_UP 65362
+# define ARROW_LEFT 0xFF51
+# define ARROW_RIGHT 0xff53
+# define ARROW_DOWN 0xff54
+# define ARROW_UP 0xff52
 # define KEY_W	0x0077
 # define KEY_S	0x0073
 # define KEY_Q	0x0071
