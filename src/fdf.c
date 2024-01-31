@@ -6,7 +6,7 @@
 /*   By: aldantas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 03:23:19 by aldantas          #+#    #+#             */
-/*   Updated: 2024/01/03 03:29:33 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:41:45 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 	defaults(&data);
 	get_map(file_name, &data);
 	display_map(&data);
-	mlx_key_hook(data.img_ptr, &moves, &data);
-	mlx_hook(data.img_ptr, 17, 0, &destroy_fdf, &data);
+	mlx_key_hook(data.img_ptr, moves, &data);
+	mlx_hook(data.img_ptr, 17, 0, destroy_fdf, &data);
 	mlx_loop(data.mlx_ptr);
 }

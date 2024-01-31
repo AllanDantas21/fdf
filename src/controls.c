@@ -1,16 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   controls.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aldantas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/31 14:01:26 by aldantas          #+#    #+#             */
+/*   Updated: 2024/01/31 14:01:30 by aldantas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../includes/fdf.h"
 
 void	defaults(t_fdf *data)
 {
-	data->mv_x = (WIDTH - data->width) / 2;
-	data->mv_y = HEIGHT / 5;
+	data->width = 0;
+	data->height = 0;
+	data->matrix = NULL;
 	data->zoom = 15;
 	data->color = BLUE;
-	data->rotate_left_flag = 0;
-	data->rotate_rigth_flag = 0;
 	data->x_angle = 0.8;
 	data->y_angle = 0.8;
 	data->isometric_flag = 1;
+	data->rotate_rigth_flag = 0;
+	data->rotate_left_flag = 0;
+	data->mv_x = (WIDTH - data->width) / 2;
+	data->mv_y = HEIGHT / 5;
+	data->z1 = 0;
+	data->z2 = 0;
 }
 
 void	controls(t_pos *p, float *x2, float *y2, t_fdf *data)

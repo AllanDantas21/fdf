@@ -6,7 +6,7 @@
 /*   By: aldantas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 03:23:19 by aldantas          #+#    #+#             */
-/*   Updated: 2024/01/03 03:29:33 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:29:08 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FDF_H
@@ -58,22 +58,21 @@ typedef struct s_fdf
 	int		zoom;
 	int		color;
 	double	x_angle;
-	double  y_angle;
+	double	y_angle;
 	int		isometric_flag;
 	int		rotate_left_flag;
 	int		rotate_rigth_flag;
 	int		mv_x;
 	int		mv_y;
 
-	float	x_diff;
-	float	y_diff;
-	int		max;
 	int		z1;
 	int		z2;
 
 	void	*mlx_ptr;
 	void	*img_ptr;
-}   t_fdf;
+	float	y_diff;
+	int		max;
+}	t_fdf;
 
 void	control_zoom(t_pos *p, float *x2, float *y2, t_fdf *data);
 void	control_pos(t_pos *p, float *x2, float *y2, t_fdf *data);
@@ -83,7 +82,6 @@ void	isometric(float *x, float *y, int z, t_fdf *data);
 void	get_map(char *file_name, t_fdf *data);
 void	put_pixel(int x, int y, t_fdf *data);
 void	display_map(t_fdf *data);
-void	free_map(t_fdf *data);
 void	ft_free(t_fdf *data);
 void	defaults(t_fdf *data);
 int		get_infos(char *file_name, t_fdf *data);
@@ -95,8 +93,8 @@ char	*count_height(int fd, int *height);
 
 void	rotate_left(float *x, float *y);
 void	rotate_right(float *x, float *y);
-void 	change_r_right(t_fdf *data);
-void 	change_r_left(t_fdf *data);
+void	change_r_right(t_fdf *data);
+void	change_r_left(t_fdf *data);
 
 void	change_color(t_fdf *data);
 int		moves(int key, t_fdf *data);
