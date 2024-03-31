@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldantas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,14 +11,14 @@
 /* ************************************************************************** */
 #include "../includes/fdf.h"
 
-int check_file_name(char *file_name)
+int	check_file_name(char *file_name)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while(file_name[i] && file_name[i] != '.')
-        i++;
-    if (!ft_strncmp(&file_name[i], ".fdf", 4))
-        return (0);
-    return(1);
+	i = 0;
+	while (file_name[i] && file_name[i] != '.')
+		i++;
+	if (!ft_strncmp(&file_name[i], ".fdf", 4))
+		return (0);
+	return (1);
 }

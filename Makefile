@@ -1,7 +1,7 @@
 NAME = fdf
 LIBFT = libft.a
 MINILIBX = libmlx.a
-SRCC_FILES =	fdf.c checks.c gets.c utils.c
+SRCC_FILES =	fdf.c checks.c map.c utils.c bresenham.c display.c controls.c rotate.c keys.c
 SRC_DIR = src/
 SRC = $(addprefix $(SRC_DIR), $(SRCC_FILES))
 OBJ = ${SRC:.c=.o}
@@ -15,7 +15,7 @@ all:	$(NAME)
 $(NAME) : $(OBJ)
 		@make -C libft
 		@make -C minilibx
-		$(CC) $(CFLAGS)  $(OBJ) $(INCLUDE) libft/$(LIBFT) minilibx/$(MINILIBX) -o $(NAME)  -lX11 -lXext
+		$(CC) $(CFLAGS)  $(OBJ) $(INCLUDE) libft/$(LIBFT) minilibx/$(MINILIBX) -o $(NAME)  -lX11 -lXext -lm
 
 clean : 
 		@make clean -C libft
