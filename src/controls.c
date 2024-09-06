@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:01:26 by aldantas          #+#    #+#             */
-/*   Updated: 2024/01/31 14:01:30 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/06 17:50:13 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/fdf.h"
 
 void	defaults(t_fdf *data)

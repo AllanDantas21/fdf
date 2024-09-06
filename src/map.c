@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:01:52 by aldantas          #+#    #+#             */
-/*   Updated: 2024/01/31 14:01:54 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/06 17:50:25 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/fdf.h"
 
 int	get_infos(char *file_name, t_fdf *data)

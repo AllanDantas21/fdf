@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:02:09 by aldantas          #+#    #+#             */
-/*   Updated: 2024/01/31 14:02:12 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/06 17:50:30 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/fdf.h"
 
 int	destroy_fdf(t_fdf *data)

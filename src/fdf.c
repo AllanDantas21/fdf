@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 03:23:19 by aldantas          #+#    #+#             */
-/*   Updated: 2024/01/31 17:41:45 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/06 17:51:25 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/fdf.h"
 
-void	init_image(t_fdf *data)
+static void	init_image(t_fdf *data)
 {
 	data->mlx_ptr = mlx_init();
 	data->img_ptr = mlx_new_window(data->mlx_ptr, \
 	HEIGHT, WIDTH, "fdf - aldantas");
 }
 
-int	moves(int key, t_fdf *data)
+static int	moves(int key, t_fdf *data)
 {
 	arrows(key, data);
 	zoom(key, data);
