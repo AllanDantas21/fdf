@@ -6,15 +6,13 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 17:52:21 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/06 17:54:29 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/06 17:59:38 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PROTOTYPES_H
 # define PROTOTYPES_H
 
-void	control_zoom(t_pos *p, float *x2, float *y2, t_fdf *data);
-void	control_pos(t_pos *p, float *x2, float *y2, t_fdf *data);
 void	controls(t_pos *p, float *x2, float *y2, t_fdf *data);
 void	bresenham(t_pos p, float x2, float y2, t_fdf *data);
 void	isometric(float *x, float *y, int z, t_fdf *data);
@@ -36,7 +34,6 @@ void	change_r_right(t_fdf *data);
 void	change_r_left(t_fdf *data);
 
 void	change_color(t_fdf *data);
-// int		moves(int key, t_fdf *data);
 void	arrows(int key, t_fdf *data);
 void	zoom(int key, t_fdf *data);
 void	translation(int key, t_fdf *data);

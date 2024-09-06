@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:01:26 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/06 17:50:13 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/06 17:59:48 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,22 @@ void	defaults(t_fdf *data)
 	data->z2 = 0;
 }
 
+static void	control_zoom(t_pos *p, float *x2, float *y2, t_fdf *data)
+{
+	p->x *= data->zoom;
+	p->y *= data->zoom;
+	*x2 *= data->zoom;
+	*y2 *= data->zoom;
+}
+
+static void	control_pos(t_pos *p, float *x2, float *y2, t_fdf *data)
+{
+	p->x += data->mv_x;
+	p->y += data->mv_y;
+	*x2 += data->mv_x;
+	*y2 += data->mv_y;
+}
+
 void	controls(t_pos *p, float *x2, float *y2, t_fdf *data)
 {
 	control_zoom(p, x2, y2, data);
@@ -49,20 +65,4 @@ void	controls(t_pos *p, float *x2, float *y2, t_fdf *data)
 		isometric(x2, y2, data->z2, data);
 	}
 	control_pos(p, x2, y2, data);
-}
-
-void	control_zoom(t_pos *p, float *x2, float *y2, t_fdf *data)
-{
-	p->x *= data->zoom;
-	p->y *= data->zoom;
-	*x2 *= data->zoom;
-	*y2 *= data->zoom;
-}
-
-void	control_pos(t_pos *p, float *x2, float *y2, t_fdf *data)
-{
-	p->x += data->mv_x;
-	p->y += data->mv_y;
-	*x2 += data->mv_x;
-	*y2 += data->mv_y;
 }
