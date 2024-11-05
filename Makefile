@@ -13,18 +13,18 @@ RM = rm -rf
 all:	$(NAME) 
 
 $(NAME) : $(OBJ)
-		@make -C libft
-		@make -C minilibx
-		$(CC) $(CFLAGS)  $(OBJ) $(INCLUDE) libft/$(LIBFT) minilibx/$(MINILIBX) -o $(NAME)  -lX11 -lXext -lm
+		@make -C libs/libft
+		@make -C libs/minilibx
+		$(CC) $(CFLAGS)  $(OBJ) $(INCLUDE) libs/libft/$(LIBFT) libs/minilibx/$(MINILIBX) -o $(NAME)  -lX11 -lXext -lm
 
 clean : 
-		@make clean -C libft
+		@make clean -C libs/libft
 		${RM} ${OBJ}
 
 
 fclean : clean
-		@make fclean -C libft
-		@make clean -C minilibx
+		@make fclean -C libs/libft
+		@make clean -C libs/minilibx
 		${RM} $(NAME)
 		${RM} $(LIBFT)
 
